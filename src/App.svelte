@@ -10,7 +10,7 @@
 		);
 		const responseData = await response.json();
 		jsonData = responseData.data;
-		console.log(jsonData, "jsonsdsfs");
+		console.log(jsonData, "json");
 		const gridData = jsonData.map(item => ({
     //   id: item.id,
 	reference:item.reference,
