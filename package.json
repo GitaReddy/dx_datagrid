@@ -19,7 +19,9 @@
     "svelte": "^3.59.1"
   },
   "dependencies": {
+    "devextreme": "^22.2.6",
     "gridjs": "^6.0.6",
+    "gridjs-svelte": "^2.1.1",
     "jquery": "^3.7.0",
     "sirv-cli": "^2.0.0"
   }
