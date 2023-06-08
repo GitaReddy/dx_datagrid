@@ -48,6 +48,7 @@ console.log(gridData,"griddata");
 		paging: {
 			pageSize: 10,
 		},
+		// pagination:true,
 		pager: {
 			showPageSizeSelector: true,
 			allowedPageSizes: [5, 10, 20],
@@ -58,3 +59,4 @@ console.log(gridData,"griddata");
 	// dataGrid.render();
 	// });
 </script>
+<div id="dataGrid"></div>
