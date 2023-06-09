@@ -39,12 +39,27 @@ console.log(gridData,"griddata");
 		filterRow: {
 			visible: true,
 		},
-		editing: {
+		// editing: {
 			
-			allowUpdating: true,
+		// 	allowUpdating: true,
+		// 	allowDeleting: true,
+		// 	allowAdding: true,
+		// },
+
+
+		editing: {
 			allowDeleting: true,
 			allowAdding: true,
-		},
+            allowUpdating: true,
+            mode: "popup",
+            form: {
+                labelLocation: "top"
+            },
+            popup: {
+                showTitle: true,
+                title: "Row in the editing state"
+            }
+        },
 		paging: {
 			pageSize: 10,
 		},
