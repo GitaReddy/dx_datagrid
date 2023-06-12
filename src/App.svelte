@@ -1,6 +1,7 @@
 <script>
 	import { onMount } from "svelte";
 	import "bootstrap/dist/css/bootstrap.min.css";
+	import js from 'jquery'
 	
 	let jsonData = [];
 	let gridData = [];
@@ -28,6 +29,15 @@
 					{
 						dataField: "fullName",
 						caption: "Name",
+						cellTemplate: function (container, options) {
+    var link = js("<a>")
+      .addClass("name-link")
+      .text(options.data.fullName)
+      .on("click", function () {
+        showPopup(options.data); // Call the function to show the popup with the corresponding data
+      });
+    js(container).append(link);
+  }
 						
 					},
 					
@@ -156,6 +166,9 @@
 			}
 		);
 	});
+	function showPopup(data) {
+  alert("Clicked on " + data.fullName);
+}
 </script>
 
 <div id="dataGrid" />
