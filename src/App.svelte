@@ -1,8 +1,11 @@
 <script>
 	import { onMount } from "svelte";
+	import js from 'jquery';
+
 	// Sample data
 	let jsonData = [];
 	let data = [];
+	let showModal = false;
 
 	onMount(async () => {
 		const response = await fetch(
@@ -28,7 +31,40 @@ console.log(gridData,"griddata");
 		dataSource: gridData,
 		columns: [
         { dataField: 'reference', caption: 'ID' },
-        { dataField: 'name', caption: 'Name' },
+
+
+		{
+  dataField: "name",
+  caption: "Name",
+  cellTemplate: function (container, options) {
+    var link = js("<a>")
+      .addClass("name-link")
+      .text(options.data.name)
+      .on("click", function () {
+        showPopup(options.data); // Call the function to show the popup with the corresponding data
+      });
+    js(container).append(link);
+
+
+	
+  },
+  
+},
+
+
+
+    //     { dataField: 'name', caption: 'Name', 
+	// 	cellTemplate: function (container, options) {
+    //     // Creating a link element
+    //     var link = document.createElement('a');
+    //     // link.href = options.data.url; // Setting the URL
+
+    //     // Setting the name as the link text
+    //     link.innerText = options.data.name;
+
+    //     // Appending the link to the container
+    //     container.appendChild(link);
+    //   }},
 		{ dataField: 'email', caption: 'Email' },
 		{ dataField: 'phone', caption: 'Mobile' },
         // Define other columns as needed
@@ -71,7 +107,19 @@ console.log(gridData,"griddata");
 		},
 	});
 	});
+
+	function showPopup(data) {
+  alert("Clicked on " + data.name);
+showModal = true;
+
+}
+
 	// dataGrid.render();
 	// });
 </script>
+
+
+<main>
+	
+</main>
 <div id="dataGrid"></div>
